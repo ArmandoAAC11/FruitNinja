@@ -6,8 +6,8 @@ using EzySlice;
 public class SliceObject : MonoBehaviour
 {
 
-    public Transform startSlicePoint;
-    public Transform endSlicePoint;
+    public Transform startSlicePoint; // The tip of the katana
+    public Transform endSlicePoint;   // The handle of the katana
     public VelocityEstimator velocityEstimator;
     public LayerMask sliceableLayer;
 
@@ -23,21 +23,22 @@ public class SliceObject : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out RaycastHit hit, sliceableLayer);
+        RaycastHit hit;
+        Vector3 slicingDirection = endSlicePoint.position - startSlicePoint.position;
+        bool hasHit = Physics.Raycast(startSlicePoint.position, slicingDirection, out hit, slicingDirection.magnitude ,sliceableLayer);
         if (hasHit)
         {
-            GameObject target = hit.transform.gameObject;
-            Slice(target);
+            Slice(hit.transform.gameObject, hit.point, velocityEstimator.GetVelocityEstimate());
         }
     }
 
-    public void Slice(GameObject target)
+    // Function to cut fruits
+    public void Slice(GameObject target, Vector3 planePosition, Vector3 slicerVelocity)
     {
-        Vector3 velocity = velocityEstimator.GetVelocityEstimate();
-        Vector3 planeNormal = Vector3.Cross(endSlicePoint.position - startSlicePoint.position, velocity);
-        planeNormal.Normalize();
-
-        SlicedHull hull = target.Slice(endSlicePoint.position, planeNormal);
+        Vector3 slicingDirection = endSlicePoint.position - startSlicePoint.position;
+        Vector3 planeNormal = Vector3.Cross(slicerVelocity, slicingDirection);
+        
+        SlicedHull hull = target.Slice(planePosition, planeNormal, crossSectionMaterial);
 
         if (hull != null)
         {
@@ -51,11 +52,13 @@ public class SliceObject : MonoBehaviour
         }
     }
 
+    // We set up  the slice that we have cut
     public void SetupSlicedComponent(GameObject slicedObject)
     {
         Rigidbody rb = slicedObject.AddComponent<Rigidbody>();
         MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
         collider.convex = true;
         rb.AddExplosionForce(cutForce, slicedObject.transform.position, 1);
+        Destroy(slicedObject, 4);
     }
 }

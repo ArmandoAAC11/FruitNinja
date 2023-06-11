@@ -107,3 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f03e87af8500945b55d60aecb0613c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSlicePoint: {fileID: 0}
+  endSlicePoint: {fileID: 0}
+  velocityEstimator: {fileID: 0}
+  sliceableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  crossSectionMaterial: {fileID: 0}
+  cutForce: 1000
