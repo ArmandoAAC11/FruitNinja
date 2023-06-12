@@ -3972,6 +3972,7 @@ MonoBehaviour:
   - {fileID: 5596079527770912800, guid: 0a86ee2ff5e3f3b41ae6f42915a5b32f, type: 3}
   - {fileID: 6623648514589204480, guid: 1d0e5783477e63f4e9a3228959282c58, type: 3}
   - {fileID: 1051186005375611007, guid: 3f9e059be35a5b94db646883da9a80f9, type: 3}
+  - {fileID: 4678219450146605552, guid: c5fc6fa027de5044795def72efbd02fc, type: 3}
   spawnPoints:
   - {fileID: 795290762}
   - {fileID: 1756137865}
@@ -5035,6 +5036,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34d3f526198dae440bb2ce6005d86055, type: 3}
+--- !u!1 &814573041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8957304962413023527, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56,
+    type: 3}
+  m_PrefabInstance: {fileID: 2123650554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &814628320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11137,6 +11144,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2123650554}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1789185318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814573041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa14dcca9c246504f898c9417c8d7f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNumberOfError: 5
+  currentNumberOfError: 0
 --- !u!4 &1811041276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069115365609054727, guid: 60f79905accf3b24fa0114b941f1aac0,
@@ -11210,6 +11231,7 @@ MonoBehaviour:
   - {fileID: 5596079527770912800, guid: 0a86ee2ff5e3f3b41ae6f42915a5b32f, type: 3}
   - {fileID: 6623648514589204480, guid: 1d0e5783477e63f4e9a3228959282c58, type: 3}
   - {fileID: 1051186005375611007, guid: 3f9e059be35a5b94db646883da9a80f9, type: 3}
+  - {fileID: 4678219450146605552, guid: c5fc6fa027de5044795def72efbd02fc, type: 3}
   spawnPoints:
   - {fileID: 1981798823}
   - {fileID: 1279448917}
@@ -11683,7 +11705,7 @@ PrefabInstance:
     - target: {fileID: -8552122954796922988, guid: 93a157939cb550340898ec410d6f8876,
         type: 3}
       propertyPath: sliceableLayer.m_Bits
-      value: 64
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 121217894675901541, guid: 93a157939cb550340898ec410d6f8876,
         type: 3}
@@ -12419,7 +12441,7 @@ PrefabInstance:
     - target: {fileID: -8552122954796922988, guid: 93a157939cb550340898ec410d6f8876,
         type: 3}
       propertyPath: sliceableLayer.m_Bits
-      value: 64
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 121217894675901541, guid: 93a157939cb550340898ec410d6f8876,
         type: 3}

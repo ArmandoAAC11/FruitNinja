@@ -28,7 +28,13 @@ public class SliceObject : MonoBehaviour
         bool hasHit = Physics.Raycast(startSlicePoint.position, slicingDirection, out hit, slicingDirection.magnitude ,sliceableLayer);
         if (hasHit)
         {
-            Slice(hit.transform.gameObject, hit.point, velocityEstimator.GetVelocityEstimate());
+            if (hit.transform.gameObject.layer == 7)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }else
+            {
+                Slice(hit.transform.gameObject, hit.point, velocityEstimator.GetVelocityEstimate());
+            }
         }
     }
 
@@ -61,6 +67,6 @@ public class SliceObject : MonoBehaviour
         MeshCollider collider = slicedObject.AddComponent<MeshCollider>();
         collider.convex = true;
         rb.AddExplosionForce(cutForce, slicedObject.transform.position, 1);
-        Destroy(slicedObject, 4);
+        Destroy(slicedObject, 2.5f);
     }
 }
