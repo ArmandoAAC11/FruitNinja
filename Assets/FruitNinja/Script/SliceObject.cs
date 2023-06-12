@@ -42,6 +42,8 @@ public class SliceObject : MonoBehaviour
 
         if (hull != null)
         {
+            Score.score++;
+
             GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
             SetupSlicedComponent(upperHull);
 
